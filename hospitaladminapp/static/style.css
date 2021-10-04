@@ -1,0 +1,72 @@
+body{
+  background-image: url('image10.jpg');
+    background-size: cover;
+    
+}
+.errorlist {
+  color:red;
+}
+.content{
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width:400px;
+  padding: 10px;
+
+  font-size: large;
+}
+li{
+  list-style-type: none;
+}
+.content .form-group{
+  padding: 10px;
+}
+.submit{
+
+   text-align: center;
+   background-color: rgb(98, 98, 165);
+ } 
+ .content .errormsg{
+  text-align: center;
+  margin: auto 0px;
+  color: red;
+  margin-inline-start: 70px;
+  font-family: fantasy;
+
+ }
+ table,tbody,tr,td,th{
+padding: 20px;
+ }
+  h2,h3{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .navbar {
+    overflow: hidden;
+    background-color: none;
+  }
+  
+  .navbar a {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover{
+      background-color: black;
+      color: blanchedalmond;
+  }
+.navbar .active{
+    background-color: black;
+      color: blanchedalmond;
+  }
+  .navbar .a{
+    float: left;
+    width: fit-content;
+    text-align: center;
+  }
+  tr :hover{
+    background-color: indianred;
+  }

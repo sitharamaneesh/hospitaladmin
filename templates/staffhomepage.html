@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<div class="navbar">
+    <div class="a">
+        <a  href="{%url 'staffloginpage'%}">logout</a>
+    <a href="{%url 'addInpatient'%}">Add In_Patient</a>
+    <a href="{%url 'addOutpatient'%}">Add Out_Patient</a>
+    <a href="{%url 'doctorview'%}">Doctors</a>
+    <a href="{%url 'inpatientbill'%}">Discharged Patients</a> 
+</div>
+<a style="float: right" href="{%url 'home'%}">Log Out</a>
+</div>
+<h3 class="welcome" >Hello {{user|title}} Welcome </h3>
+<div class="errormsg">{{msg}}</div>
+{%endblock%}

@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="navbar">
+    <div class="a">
+    <a  href="{%url 'drloginpage'%}">logout</a>
+    <a href="{%url 'addOutpatient'%}">Add Out_Patient</a>
+    <a href="{%url 'addInpatient'%}">Add In_Patient</a>
+    </div>
+    </div>
+   
+  <div class="content">
+<div class="tablediv">
+<table class="table" >
+    <tr>
+        <th>Doctor</th>
+        <th>Department</th>
+        <th>Off Days</th>
+        <th>Contact</th>
+    </tr>
+    {% for i in doc%}
+    <tr> 
+        <td>{{i.name}}</td>
+        <td>{{i.department}}</td>
+        <td>{{i.offday}}</td>
+        <td>{{i.number}}</td>
+    </tr>
+{%endfor%}
+</table>
+</div>
+</div>
+{%endblock%}

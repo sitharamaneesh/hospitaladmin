@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="navbar">
+    <div class="a">
+    <a  href="{%url 'drloginpage'%}">logout</a>
+   </div>
+</div>
+<h3>Add Prescription</h3>
+<div class="content">
+
+<form action="addprescription" method="POST">
+    {%csrf_token%}
+        {%for patient in patient%}
+        <div class="form-group">
+      <pre>Name:{{patient.name}}     Age:{{patient.age}}     Gender:{{patient.gender}}</pre> 
+        {%endfor%}
+            {{form.as_p}}
+            </div>
+            <div class="form-group">
+                <label class="control-label">Prescription</label>
+    <input class="form-control" required name="prescription" name="pres" > 
+            <label  class="control-label" for="qty">Qty</label><input class="form-control" type="number" required name="qty">
+<input class="submit btn btn-info " type="submit" name="action" value="Add prescription">
+</div>
+</div>
+</div>
+</form>
+</div>
+{%endblock%}

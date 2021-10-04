@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block content%}
+<h3>Out Patient Bill</h3>
+<form action="bill" method="POST">
+    {%csrf_token%}
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Token</th>
+            <th>Medicines</th>
+            <th>pres</th>
+            <th>Qty</th>
+        </tr>
+        {%for i in obj%}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.token}}</td>
+            <td>{{i.medname}}</td>
+            <td>{{i.pres}}</td>
+            <td>{{i.qty}}</td>
+            <td><button class="submit btn btn-info " type="submit" name="bill" value="{{i.token}}">Generate Bill</button></td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+</form>
+
+{%endblock%}

@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<div class="navbar">
+  <div class="a">
+  <a  href="{%url 'staffloginpage'%}">logout</a>
+  <a href="{%url 'addOutpatient'%}">Add Out_Patient</a>
+  <a href="{%url 'doctorview'%}">Doctors</a>
+    <a href="{%url 'inpatientbill'%}">Discharged Patients</a> 
+  </div>
+  </div>
+  <h2>Add Inpatient</h2>
+<div class="content">
+<form method="POST" action="saveInpatient">
+    {%csrf_token%}
+    <div class="form-group">
+  {{form.as_p}}
+  <input class="submit btn btn-info " type="submit"value="Save">
+</div>
+
+</form>
+<div class="errormsg">{{msg}}</div>
+</div>
+
+{%endblock%}

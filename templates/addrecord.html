@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<div class="navbar">
+    <div class="a">
+        {%for i in patient%}
+    <a  href="{%url 'addrecordpage'%}" name="drname" >Back</a>
+   </div>
+</div>
+<h2>{{i.name|title}} records</h2>  
+{%endfor%}
+<div class="container">
+    <div class="row">
+        <form action="saverecord" method="POST">
+            {%csrf_token%}
+        <div class="col-md-6"> 
+           
+        {%if records%}
+        <table>
+        <tr> 
+            <th>Record</th>
+            <th>Date </th>
+        </tr>
+        {%for record in records%}
+        <tr> 
+             <td>{{record.records}}</td>
+             <td>{{record.dt}}</td> 
+        </tr>
+        {%endfor%}
+        </table>
+        {%else%}
+        <h5>No records to show</h5>
+        {%endif%}
+        <input style="margin: 0px; width: 400px; height: 300px;" type="text" required  placeholder="Add Records "name="record">
+        <br><br>
+        </div>
+        <div class="col-md-6" style=margin-top:50px;> 
+        {{form.as_p}}
+        <div class="form-group ">
+        <label class="control-label">Add Prescription</label>    
+        <input class="form-control" required name="prescription" style="margin:0px; height: 100px;" placeholder="Add prescription" name="pres" >
+        <label class="control-label">Qty</label><input class="form-control" required  name="qty" type="number">
+        </div>
+        </div>
+        {%for i in patient%}   <button   class="submit btn btn-info " type="submit" name="save" value={{i.id}}>Add</button>{%endfor%}
+    </form>
+</div>
+</div>
+{%endblock%}

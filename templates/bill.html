@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="navbar">
+    <div class="a">
+    <a href="{%url 'doctorview'%}">Doctors</a>
+  
+   </div>
+</div>
+<table  style="text-align: center" >
+    {%for i in pat%}
+    <tr>
+        <th>Name:{{i.name|title}}</th> 
+        <th>Age:{{i.age}}  </th>
+        <th>Token:{{i.token}}</th>
+    </tr>
+    {%endfor%}
+    <tr>
+        <th>Medicine</th>
+        {%for i in med%}<td>{{i}}</td>{%endfor%}
+        </tr>
+        <tr>
+        <th>qty</th>
+        {%for i in qty%}<td>{{i}}</td>{%endfor%}
+    </tr>
+    <tr>
+        <th>Price/qty</th>
+        {%for i in pri%}<td>{{i}}.Rs</td>{%endfor%}
+    </tr>
+    <tr>
+        <th>Total Amount</th>
+        {%for i in tot%}<td>{{i}}.Rs</td>{%endfor%}
+    </tr>
+<tr>
+    <th>TOTAL BILL</th>
+    <TD colspan="2">{{totbill}}.Rs</TD>
+</tr>
+</table>
+{%endblock%}

@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block content%}
+
+
+
+{%load static%}
+<div class="navbar">
+<div class="a">
+<a  href="{%url 'home'%}">Home</a>
+</div>
+</div>
+<h2>Staff Login</h2>
+<form method="POST" action='staffhomepage'>
+    {% csrf_token %}
+    <div class="content">
+<div class="form-group">
+    <label class="control-label" for="name">Name:</label>
+    <input class="form-control" type="text" id="name" name="name">
+    </div>
+<div class="form-group">  
+    <label class="control-label" for="pwd">Password</label>
+    <input type="password" class="form-control" id="pwd" name="pwd">
+</div> 
+<input type="submit" class="submit btn btn-info " value="Log In" >
+<div class="errormsg">{{msg}}</div>
+</div>
+
+
+</form>
+
+{%endblock%}

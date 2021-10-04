@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<div class="navbar">
+    <div class="a">
+    <a href="{%url 'doctorview'%}">Doctors</a>
+    <a  href="{%url 'drloginpage'%}">logout</a>
+   </div>
+</div>
+<div class="content">
+<div class="form-group">
+    {%if patients%}
+    <h5>Admitted Patients</h5>
+    <table>
+        <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Admit date</th>
+        </tr>
+        {%for i in patients%}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.date}}</td>
+            <td>
+                <form action="addrecordpage" method="POST">
+                    {%csrf_token%} {{i.id}}
+                    <button class="submit"name="addrecord" type="submit" value={{i.id}}>Add Record</button>
+                    </form>
+             </td>
+            <td>
+            <form action="discharge" method="POST">
+            {%csrf_token%}
+            <button name="discharge" class="submit" type="submit" value={{i.id}}>Discharge</button>
+            </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    {{error}}
+    {%else%}
+<H5>No admitted Patients</H5>
+    {%endif%}
+</div>
+</div>
+{%endblock%}

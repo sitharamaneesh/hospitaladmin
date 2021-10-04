@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<div class="navbar">
+    <div class="a">
+    <a href="{%url 'doctorview'%}">Doctors</a>
+    <a href="{%url 'drloginpage'%}">Log Out</a>
+   </div>
+</div>
+
+<form action="addprescriptionpage" method="POST">
+    {%csrf_token%}
+    {%if patients%}
+<div class="form-group">
+    <h5>Out Patient</h5>
+    <table>
+        <tr>
+        <th>Token No</th>
+        <th>Age</th>
+        <th>Name</th>
+        </tr>
+        {%for i in patients%}
+        <tr>
+        <td><input title="Click to Add Prescription" class="submit btn btn-info " type="submit"  name='action' value={{i.token}}></td>
+        <td>{{i.age}}</td>
+        <td>{{i.name}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%else%}
+<h5>No appoinments today</h5>
+{%endif%}
+</form>
+</div>
+</div>
+
+<div class="errormsg">{{msg}}</div>
+{%endblock%}
